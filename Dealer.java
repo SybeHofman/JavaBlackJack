@@ -1,23 +1,27 @@
 import java.util.ArrayList;
-import java.util.Scanner;
-public class Player {
+public class Dealer {
     private ArrayList<Card> cards;
     private int totalValue;
-    private int money;
-    private boolean soft; //true if player has an Ace and total value is 21 or less
+    private boolean soft; //true if dealer has an Ace and total value is 21 or less
 
-    public Player() {
+    public Dealer() {
         cards = new ArrayList<>();
         totalValue = 0;
         soft = false;
-        System.out.print("How much money do you want to start with? ");
-
-        Scanner in = new Scanner(System.in);
-        money = in.nextInt();
     }
-
+    
     public ArrayList<Card> getCards() {
         return cards;
+    }
+
+    public String getFirstCards() {
+        return "" + cards.get(0).toString();
+    }
+
+    public void clear() {
+        cards.clear();
+        totalValue = 0;
+        soft = false;
     }
 
     public String toString() {
@@ -42,20 +46,6 @@ public class Player {
             removeSoft();
             soft = checkSoft();
         }
-    }
-
-    public int getMoney() {
-        return money;
-    }
-
-    public void changeMoney(int amount) {
-        money += amount;
-    }
-
-    public void clear() {
-        cards.clear();
-        totalValue = 0;
-        soft = false;
     }
 
     private boolean checkSoft() {

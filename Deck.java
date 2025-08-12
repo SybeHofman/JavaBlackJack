@@ -19,6 +19,10 @@ public class Deck {
         return removed;
     }
 
+    public int size() {
+        return cards.size();
+    }
+
     public void shuffle() {
         cards.addAll(discardedCards);
         discardedCards.clear();
